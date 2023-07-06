@@ -9,7 +9,7 @@ services:
     build:
       context: ./nodejs
       dockerfile: Dockerfile
-    entrypoint: dockerize tcp://db:3306 -timeout 30s bash -c "./docker-entrypoint.sh"
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 30s bash -c "./docker-entrypoint.sh"
     container_name: nodejs
     hostname: nodejsserver
     volumes:
